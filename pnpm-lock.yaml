@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@vercel/analytics': ^0.1.11
   autoprefixer: ^10.4.13
   postcss: ^8.4.21
   solid-icons: ^1.0.4
@@ -12,6 +13,7 @@ specifiers:
   vite-plugin-solid: ^2.5.0
 
 dependencies:
+  '@vercel/analytics': 0.1.11
   solid-icons: 1.0.4_solid-js@1.6.10
   solid-js: 1.6.10
   tailwindcss-palette-generator: 0.2.5_tailwindcss@3.2.4
@@ -594,6 +596,12 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.14.0
+
+  /@vercel/analytics/0.1.11:
+    resolution: {integrity: sha512-mj5CPR02y0BRs1tN3oZcBNAX9a8NxsIUl9vElDPcqxnMfP0RbRc9fI9Ud7+QDg/1Izvt5uMumsr+6YsmVHcyuw==}
+    peerDependencies:
+      react: ^16.8||^17||^18
+    dev: false
 
   /acorn-node/1.8.2:
     resolution: {integrity: sha512-8mt+fslDufLYntIoPAaIMUe/lrbrehIiwmR3t2k9LljIzoigEPF27eLk2hy8zSGzmR/ogr7zbRKINMo1u0yh5A==}
