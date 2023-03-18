@@ -4,6 +4,7 @@ import CountDown from "./components/CountDown";
 import DateClock from "./components/DateClock";
 import Quote from "./components/Quote";
 import Working from "./components/Working";
+import Fullscreen from "./components/Buttons/Fullscreen";
 
 inject();
 
@@ -14,6 +15,7 @@ const App: Component = () => {
       <DateClock />
       <Quote />
       <Working />
+      <Fullscreen />
     </>
   );
 };
