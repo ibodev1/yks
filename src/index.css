@@ -6,4 +6,18 @@
   * {
     font-family: "Manrope", sans-serif !important;
   }
+
+  body {
+    background-image: url("../assets/bg.jpeg");
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    min-height: 100vh !important;
+    max-height: 100vh !important;
+    overflow: hidden !important;
+  }
+
+  body::before {
+    @apply content-[""] bg-secondary bg-opacity-50 w-full h-full absolute top-0 left-0 -z-10 pointer-events-none;
+  }
 }
