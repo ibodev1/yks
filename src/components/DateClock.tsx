@@ -1,4 +1,5 @@
 import { type Component, createSignal } from "solid-js";
+import { FiClock } from "solid-icons/fi";
 
 const DateClock: Component = () => {
   const [hours, setHours] = createSignal<string>("Yükleniyor...");
@@ -21,7 +22,8 @@ const DateClock: Component = () => {
   return (
     <article class="absolute bottom-0 left-0">
       <div class="bg-primary bg-opacity-75 text-vanilla-300 text-center p-6 rounded-tr-lg border-r border-t border-primary">
-        <h2 class="text-4xl font-bold pb-2">{hours}</h2>
+        <FiClock size={44} class="mx-auto" />
+        <h2 class="text-4xl font-bold py-2">{hours}</h2>
         <span class="font-light text-lg">{date}</span>
       </div>
     </article>

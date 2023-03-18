@@ -24,6 +24,10 @@
 
 @layer components {
   .btn {
-    @apply flex-1 w-full mt-2 px-2 py-1 bg-primary hover:bg-primary-600 active:bg-primary-700 duration-200 text-vanilla-300 rounded-lg font-medium;
+    @apply flex items-center justify-center flex-1 w-full mt-2 px-2 py-1 bg-primary hover:bg-primary-600 active:bg-primary-700 duration-200 text-vanilla-300 rounded-lg font-medium;
+  }
+
+  .btn svg {
+    @apply ml-2;
   }
 }

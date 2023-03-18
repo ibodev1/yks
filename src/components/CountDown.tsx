@@ -1,4 +1,5 @@
 import { type Component, createSignal } from "solid-js";
+import { FiCheckCircle } from "solid-icons/fi";
 
 const CountDown: Component = () => {
   const [time, setTime] = createSignal<string>("Yükleniyor...");
@@ -35,7 +36,8 @@ const CountDown: Component = () => {
   return (
     <article class="absolute bottom-0 right-0">
       <div class="bg-primary bg-opacity-75 text-vanilla-300 text-center p-6 rounded-tl-lg border-l border-t border-primary">
-        <h2 class="text-4xl font-bold pb-2">YKS Geri Sayım</h2>
+        <FiCheckCircle size={44} class="mx-auto" />
+        <h2 class="text-4xl font-bold py-2">YKS Geri Sayım</h2>
         <span class="font-light text-lg">{time}</span>
       </div>
     </article>

@@ -1,4 +1,5 @@
 import { type Component, createSignal } from "solid-js";
+import { FiPlayCircle, FiPauseCircle, FiCheckCircle } from "solid-icons/fi";
 
 export interface Timer {
   hours: number;
@@ -124,14 +125,18 @@ const Working: Component = () => {
           </div>
           {isFinished() ? (
             <div class="px-4 py-2 mt-2 text-center text-sm font-light bg-primary text-vanilla-300 rounded-xl">
-              Çalışmanı bitirdin! {details().startTime} saatinde başladığın
-              çalışmaya {details().finishedTime} saatinde bitirdin.{" "}
-              {details().totalTime.hours.toString().padStart(2, "0")} saat,{" "}
-              {details().totalTime.minutes.toString().padStart(2, "0")} dakika
-              ve {details().totalTime.seconds.toString().padStart(2, "0")}{" "}
-              saniye boyunca çalışmış oldun. Ve bu süre zarfında toplam{" "}
-              {details().stopOverCount.toString()} kez mola verdin. Umarım
-              çalışmanın karşılığını alırsın ve sınavda başarılı olursun!
+              Çalışmanı bitirdin! <b>{details().startTime}</b> saatinde
+              başladığın çalışmaya <b>{details().finishedTime}</b> saatinde
+              bitirdin. Ve bu süre zarfında toplam{" "}
+              <b>{details().stopOverCount.toString()}</b> kez mola verdin.{" "}
+              <b>
+                {details().totalTime.hours.toString().padStart(2, "0")} saat,{" "}
+                {details().totalTime.minutes.toString().padStart(2, "0")} dakika
+                ve {details().totalTime.seconds.toString().padStart(2, "0")}{" "}
+                saniye
+              </b>{" "}
+              boyunca çalışmış oldun. Umarım çalışmanın karşılığını alırsın ve
+              sınavda başarılı olursun!
             </div>
           ) : (
             ""
@@ -142,20 +147,28 @@ const Working: Component = () => {
       )}
       {!isStarted() ? (
         <button class="btn" onClick={handleStart}>
-          {isStopover()
-            ? "Devam Et"
-            : isFinished()
-            ? "Tekrar Çalışmaya Başla!"
-            : "Çalışmaya Başla"}
+          {isStopover() ? (
+            <>
+              Devam Et <FiPlayCircle />
+            </>
+          ) : isFinished() ? (
+            <>
+              Tekrar Çalışmaya Başla! <FiPlayCircle />
+            </>
+          ) : (
+            <>
+              Çalışmaya Başla <FiPlayCircle />
+            </>
+          )}
         </button>
       ) : (
         <button class="btn" onClick={handleStopover}>
-          Mola Ver
+          Mola Ver <FiPauseCircle />
         </button>
       )}
       {isStopover() ? (
         <button class="btn" onClick={handleFinish}>
-          Çalışmayı Bitir
+          Çalışmayı Bitir <FiCheckCircle />
         </button>
       ) : (
         ""
