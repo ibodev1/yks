@@ -8,6 +8,7 @@ import Fullscreen from "./components/Buttons/Fullscreen";
 import Settings from "./components/Settings";
 import createLocalStore from "./helpers/createLocaleStore";
 import { ISettings } from "./types";
+import Works from "./components/Works";
 
 // inject();
 
@@ -34,6 +35,7 @@ const App: Component = () => {
         <Fullscreen />
       </Show>
       <Settings settings={settings} setSettings={setSettings} />
+      <Works />
     </>
   );
 };
