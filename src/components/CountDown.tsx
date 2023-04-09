@@ -3,18 +3,16 @@ import { FiCheckCircle } from "solid-icons/fi";
 
 const CountDown: Component = () => {
   const [time, setTime] = createSignal<string>("Yükleniyor...");
-  const countDownDate = new Date(
-    "Saturday, June 17, 2023 10:15:00 AM GMT+03:00"
-  ).getTime();
+  const countDownDate = new Date(Number(1686986100) * 1000).getTime();
   const interVal = setInterval(function () {
-    var now = new Date().getTime();
-    var distance = countDownDate - now;
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor(
+    const now = new Date().getTime();
+    const distance = countDownDate - now;
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
       (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
     );
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     const countDown =
       days.toString().padStart(2, "0") +
