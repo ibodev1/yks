@@ -21,7 +21,7 @@ const Settings: Component<{
     <Show
       when={isOpen()}
       fallback={
-        <button onClick={onOpen} class="text-vanilla fixed top-4 left-4">
+        <button onClick={onOpen} class="text-vanilla fixed top-4 left-4 opacity-50 hover:opacity-100">
           <FiSettings size={24} />
         </button>
       }

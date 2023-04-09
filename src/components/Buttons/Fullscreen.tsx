@@ -44,7 +44,7 @@ const Fullscreen: Component = () => {
   };
 
   return (
-    <button onClick={toggleFullScreen} class="text-vanilla fixed top-4 right-4">
+    <button onClick={toggleFullScreen} class="text-vanilla fixed top-4 right-4 opacity-50 hover:opacity-100">
       {isFullscreen() ? <FiMinimize size={24} /> : <FiMaximize size={24} />}
     </button>
   );
