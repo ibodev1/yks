@@ -11,7 +11,6 @@ const getWorks = (): Work[] => {
 const addNewWork = (work: Work) => {
   const works = getWorks();
   const newWorks = [...works, work];
-  console.log(newWorks);
   localStorage.setItem("works", JSON.stringify(newWorks));
 };
 
