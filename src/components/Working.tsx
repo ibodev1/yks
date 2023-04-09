@@ -1,24 +1,13 @@
 import { type Component, createSignal } from "solid-js";
 import { FiPlayCircle, FiPauseCircle, FiCheckCircle } from "solid-icons/fi";
-
-export interface Timer {
-  hours: number;
-  minutes: number;
-  seconds: number;
-}
-
-export interface Details {
-  startTime: string;
-  finishedTime: string;
-  totalTime: Timer;
-  stopOverCount: number;
-}
+import { Work, Timer } from "../types";
+import { addNewWork } from "../helpers/works";
 
 const Working: Component = () => {
   const [isStarted, setIsStarted] = createSignal<Boolean>(false);
   const [isStopover, setIsStopover] = createSignal<Boolean>(false);
   const [isFinished, setIsFinished] = createSignal<Boolean>(false);
-  const [details, setDetails] = createSignal<Details>({
+  const [details, setDetails] = createSignal<Work>({
     startTime: "00:00",
     finishedTime: "00:00",
     totalTime: {
@@ -26,7 +15,8 @@ const Working: Component = () => {
       minutes: 0,
       seconds: 0
     },
-    stopOverCount: 0
+    stopOverCount: 0,
+    createdDate: Date.now()
   });
   const [interVal, setInterVal] = createSignal<NodeJS.Timer | null>(null);
   const [timer, setTimer] = createSignal<Timer>({
@@ -57,7 +47,8 @@ const Working: Component = () => {
         startTime:
           date.getHours().toString().padStart(2, "0") +
           ":" +
-          date.getMinutes().toString().padStart(2, "0")
+          date.getMinutes().toString().padStart(2, "0"),
+        createdDate: Date.now()
       });
     }
 
@@ -86,13 +77,15 @@ const Working: Component = () => {
         finishedTime:
           date.getHours().toString().padStart(2, "0") +
           ":" +
-          date.getMinutes().toString().padStart(2, "0")
+          date.getMinutes().toString().padStart(2, "0"),
+        createdDate: Date.now()
       });
       setIsStarted(false);
       setIsFinished(true);
       setIsStopover(false);
       clearInterval(interVal());
       setTimer({ hours: 0, minutes: 0, seconds: 0 });
+      addNewWork(details());
     }
   };
 
@@ -113,10 +106,10 @@ const Working: Component = () => {
     });
   };
   return (
-    <article class="fixed top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4">
+    <article class="fixed top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 text-2xl font-medium">
       {isStarted() || isStopover() || isFinished() ? (
         <>
-          <div class="px-4 py-2 text-center text-2xl font-bold bg-primary bg-opacity-50 border border-primary text-vanilla-300 rounded-xl">
+          <div class="flex items-center justify-center w-auto mx-auto px-4 py-2 text-center font-bold bg-primary bg-opacity-50 border border-primary text-vanilla-300 rounded-xl text-4xl">
             {timer().hours.toString().padStart(2, "0") +
               ":" +
               timer().minutes.toString().padStart(2, "0") +
@@ -124,19 +117,20 @@ const Working: Component = () => {
               timer().seconds.toString().padStart(2, "0")}
           </div>
           {isFinished() ? (
-            <div class="px-4 py-2 mt-2 text-center text-sm font-light bg-primary text-vanilla-300 rounded-xl">
-              Çalışmanı bitirdin! <b>{details().startTime}</b> saatinde
-              başladığın çalışmaya <b>{details().finishedTime}</b> saatinde
-              bitirdin. Ve bu süre zarfında toplam{" "}
-              <b>{details().stopOverCount.toString()}</b> kez mola verdin.{" "}
-              <b>
-                {details().totalTime.hours.toString().padStart(2, "0")} saat,{" "}
-                {details().totalTime.minutes.toString().padStart(2, "0")} dakika
-                ve {details().totalTime.seconds.toString().padStart(2, "0")}{" "}
-                saniye
-              </b>{" "}
-              boyunca çalışmış oldun. Umarım çalışmanın karşılığını alırsın ve
-              sınavda başarılı olursun!
+            <div class="px-4 py-2 mt-2 text-center text-base font-light bg-primary text-vanilla-300 rounded-xl">
+              Başlama Saati : {details().startTime}
+              <br />
+              Bitirme Saati : {details().finishedTime}
+              <br />
+              Mola Sayısı : {details().stopOverCount.toString()}
+              <br />
+              Çalışma Süren :{" "}
+              {details().totalTime.hours.toString().padStart(2, "0")} saat,{" "}
+              {details().totalTime.minutes.toString().padStart(2, "0")} dakika
+              ve {details().totalTime.seconds.toString().padStart(2, "0")}{" "}
+              saniye
+              <br />
+              Umarım çalışmanın karşılığını alırsın ve sınavda başarılı olursun!
             </div>
           ) : (
             ""

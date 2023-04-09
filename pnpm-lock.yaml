@@ -15,6 +15,9 @@ dependencies:
     version: 0.2.5(tailwindcss@3.2.4)
 
 devDependencies:
+  '@types/node':
+    specifier: ^18.15.11
+    version: 18.15.11
   autoprefixer:
     specifier: ^10.4.13
     version: 10.4.13(postcss@8.4.21)
@@ -29,7 +32,7 @@ devDependencies:
     version: 4.9.5
   vite:
     specifier: ^4.1.1
-    version: 4.1.1
+    version: 4.1.1(@types/node@18.15.11)
   vite-plugin-solid:
     specifier: ^2.5.0
     version: 2.5.0(solid-js@1.6.10)(vite@4.1.1)
@@ -604,6 +607,10 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.14.0
+
+  /@types/node@18.15.11:
+    resolution: {integrity: sha512-E5Kwq2n4SbMzQOn6wnmBjuK9ouqlURrcZDVfbo9ftDDTFt3nk7ZKK4GMOzoYgnpQJKcxwQw+lGaBvvlMo0qN/Q==}
+    dev: true
 
   /@vercel/analytics@0.1.11(react@18.2.0):
     resolution: {integrity: sha512-mj5CPR02y0BRs1tN3oZcBNAX9a8NxsIUl9vElDPcqxnMfP0RbRc9fI9Ud7+QDg/1Izvt5uMumsr+6YsmVHcyuw==}
@@ -1277,13 +1284,13 @@ packages:
       merge-anything: 5.1.4
       solid-js: 1.6.10
       solid-refresh: 0.4.1(solid-js@1.6.10)
-      vite: 4.1.1
+      vite: 4.1.1(@types/node@18.15.11)
       vitefu: 0.2.4(vite@4.1.1)
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /vite@4.1.1:
+  /vite@4.1.1(@types/node@18.15.11):
     resolution: {integrity: sha512-LM9WWea8vsxhr782r9ntg+bhSFS06FJgCvvB0+8hf8UWtvaiDagKYWXndjfX6kGl74keHJUcpzrQliDXZlF5yg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -1308,6 +1315,7 @@ packages:
       terser:
         optional: true
     dependencies:
+      '@types/node': 18.15.11
       esbuild: 0.16.17
       postcss: 8.4.21
       resolve: 1.22.1
@@ -1324,7 +1332,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 4.1.1
+      vite: 4.1.1(@types/node@18.15.11)
     dev: true
 
   /xtend@4.0.2:
