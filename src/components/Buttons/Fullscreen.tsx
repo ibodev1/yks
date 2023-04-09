@@ -2,7 +2,9 @@ import { type Component, createSignal } from "solid-js";
 import { FiMaximize, FiMinimize } from "solid-icons/fi";
 
 const Fullscreen: Component = () => {
-  const [isFullscreen, setIsFullscreen] = createSignal<Boolean>(false);
+  const [isFullscreen, setIsFullscreen] = createSignal<Boolean>(
+    document.fullscreenElement !== null || false
+  );
   const elem = document.documentElement;
 
   function openFullscreen() {
@@ -29,7 +31,7 @@ const Fullscreen: Component = () => {
     }
   }
 
-  document.documentElement.onfullscreenchange = () => {
+  elem.onfullscreenchange = () => {
     setIsFullscreen(document.fullscreenElement !== null);
   };
 

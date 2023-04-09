@@ -7,14 +7,14 @@ const Modal: Component<{
   title: string;
 }> = (props: any) => {
   return (
-    <div class="fixed top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 bg-vanilla min-w-[25rem] max-w-screen-[25rem] rounded-lg">
+    <div class="fixed top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 bg-vanilla min-w-[25rem] max-w-screen-[25rem] rounded-lg z-[999]">
       <div class="flex items-center justify-between border-b border-primary text-primary-700 p-2">
         <div class="text-xl font-semibold">{props.title}</div>
         <button class="text-lg text-secondary" onClick={props.onClose}>
           <FiX />
         </button>
       </div>
-      <div class="p-2">{props.children}</div>
+      <div class="relative">{props.children}</div>
     </div>
   );
 };
