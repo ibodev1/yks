@@ -17,7 +17,17 @@ const WorksModal: Component<{
   };
 
   return (
-    <Modal onClose={onClose} title="Önceki Çalışmalarım">
+    <Modal
+      onClose={onClose}
+      title="Önceki Çalışmalarım"
+      footer={
+        works().length > 0 ? (
+          <button onClick={deleteAllWorks} class="btn btn-danger m-2">
+            Tümünü Temizle
+          </button>
+        ) : null
+      }
+    >
       <For
         each={works().sort((a, b) => b.createdDate - a.createdDate)}
         fallback={
@@ -28,11 +38,6 @@ const WorksModal: Component<{
       >
         {(work: Work, i) => <WorkItem setWorks={setWorks} work={work} />}
       </For>
-      {works().length > 0 ? (
-        <button onClick={deleteAllWorks} class="btn btn-danger m-2">
-          Tümünü Temizle
-        </button>
-      ) : null}
     </Modal>
   );
 };
