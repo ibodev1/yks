@@ -10,7 +10,12 @@ import createLocalStore from "./helpers/createLocaleStore";
 import { ISettings } from "./types";
 import Works from "./components/Works";
 
-inject();
+type Mode = "auto" | "development" | "production";
+
+inject({
+  debug: import.meta.env.DEV,
+  mode: import.meta.env.MODE as Mode ?? "auto"
+});
 
 const App: Component = () => {
   const [settings, setSettings] = createLocalStore<ISettings>("settings", {
