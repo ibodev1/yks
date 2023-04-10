@@ -3,8 +3,12 @@ import { FiCheckCircle } from "solid-icons/fi";
 
 const CountDown: Component = () => {
   const [time, setTime] = createSignal<string>("Yükleniyor...");
+  const [interVal, setInterVal] = createSignal<NodeJS.Timer | number | null>(
+    null
+  );
   const countDownDate = new Date(Number(1686986100) * 1000).getTime();
-  const interVal = setInterval(function () {
+
+  const updateCountDown = () => {
     const now = new Date().getTime();
     const distance = countDownDate - now;
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -26,11 +30,17 @@ const CountDown: Component = () => {
     if (distance > 0) {
       setTime(countDown);
     } else {
-      clearInterval(interVal);
+      if (!!interVal()) {
+        clearInterval(Number(interVal()));
+      }
       setTime("Başarılar Dilerim!");
     }
-  }, 1000);
+  };
 
+  updateCountDown();
+  const interValId = setInterval(updateCountDown, 1000);
+  setInterVal(interValId);
+  
   return (
     <article class="absolute bottom-0 right-0">
       <div class="bg-primary bg-opacity-75 text-vanilla-300 text-center p-6 rounded-tl-lg border-l border-t border-primary">
