@@ -19,7 +19,6 @@ const addNewWork = (work: Work) => {
 const deleteWork = (work: Work) => {
   const works = getWorks();
   const filteredWorks = works.filter((w) => w.id !== work.id || w.createdDate !== work.createdDate);
-  console.log(filteredWorks);
   localStorage.setItem(LOCALE_STORAGE_NAME, JSON.stringify(filteredWorks));
 }
 
