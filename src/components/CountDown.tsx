@@ -23,20 +23,20 @@ const CountDown: Component = () => {
       "dk " +
       seconds.toString().padStart(2, "0") +
       "sn ";
-    if (hours > 0) {
+    if (distance > 0) {
       setTime(countDown);
-    }
-    if (distance < 0) {
+    } else {
       clearInterval(interVal);
       setTime("Başarılar Dilerim!");
     }
   }, 1000);
+
   return (
     <article class="absolute bottom-0 right-0">
       <div class="bg-primary bg-opacity-75 text-vanilla-300 text-center p-6 rounded-tl-lg border-l border-t border-primary">
         <FiCheckCircle size={44} class="mx-auto" />
         <h2 class="text-4xl font-bold py-2">YKS Geri Sayım</h2>
-        <span class="font-light text-lg">{time}</span>
+        <span class="font-light text-lg">{time().toString()}</span>
       </div>
     </article>
   );
