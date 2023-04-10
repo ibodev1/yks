@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@vercel/analytics": "^0.1.11",
+    "nanoid": "^4.0.2",
     "solid-icons": "^1.0.4",
     "solid-js": "1.7.3",
     "tailwindcss-palette-generator": "0.3.0"

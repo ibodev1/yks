@@ -5,6 +5,7 @@ export interface Timer {
 }
 
 export interface Work {
+  id: string;
   startTime: string;
   finishedTime: string;
   totalTime: Timer;

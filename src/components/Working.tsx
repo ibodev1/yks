@@ -1,5 +1,6 @@
 import { type Component, createSignal } from "solid-js";
 import { FiPlayCircle, FiPauseCircle, FiCheckCircle } from "solid-icons/fi";
+import { nanoid } from 'nanoid'
 import { Work, Timer } from "../types";
 import { addNewWork } from "../helpers/works";
 
@@ -8,6 +9,7 @@ const Working: Component = () => {
   const [isStopover, setIsStopover] = createSignal<Boolean>(false);
   const [isFinished, setIsFinished] = createSignal<Boolean>(false);
   const [details, setDetails] = createSignal<Work>({
+    id: nanoid(),
     startTime: "00:00",
     finishedTime: "00:00",
     totalTime: {
@@ -37,6 +39,7 @@ const Working: Component = () => {
     if (!isStopover()) {
       const date = new Date();
       setDetails({
+        id: nanoid(),
         totalTime: {
           hours: 0,
           minutes: 0,
