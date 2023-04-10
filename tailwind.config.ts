@@ -1,5 +1,6 @@
-/** @type {import('tailwindcss').Config} */
-const getPalette = require("tailwindcss-palette-generator");
+import type { Config } from 'tailwindcss'
+import getPalette from "tailwindcss-palette-generator";
+
 const palette = getPalette([
   {
     name: "primary",
@@ -15,7 +16,7 @@ const palette = getPalette([
   }
 ]);
 
-module.exports = {
+export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx,css,md,mdx,html,json,scss}"
@@ -26,5 +27,6 @@ module.exports = {
       colors: palette
     }
   },
-  plugins: []
-};
+  plugins: [],
+} satisfies Config
+
