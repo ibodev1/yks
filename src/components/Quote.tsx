@@ -14,7 +14,7 @@ const Loading: Component = () => {
 
 const Quote: Component = () => {
   const [quote] = createResource(async () => {
-    const res = await fetch("https://ataturk.vercel.app/tr");
+    const res = await fetch("/api/ataturk");
     if (!res.ok) {
       return { quote: "Beklenmeyen bir hata oluştu..." };
     }

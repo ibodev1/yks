@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
+    "lib": ["ESNext"],
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
@@ -9,6 +10,6 @@
     "jsxImportSource": "solid-js",
     "types": ["node", "vite/client"],
     "noEmit": true,
-    "isolatedModules": true
+    "isolatedModules": false
   }
 }
