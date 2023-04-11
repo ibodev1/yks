@@ -8,7 +8,7 @@ Bununla birlikte, sınava hazırlanma sürecinde öğrencilerin sadece kaynaklar
 # Canlı
 [yks.vercel.app](https://yks.vercel.app/)
 
-# Atatürk Quotes API
-[Github Repo (github.com/msrkc/ataturk-quotes-api)](https://github.com/msrkc/ataturk-quotes-api)
+# Atatürk Sözleri API
+[Sözler bu repodan alınmıştır.](https://github.com/msrkc/ataturk-quotes-api)
 
-[Link (ataturk.vercel.app)](https://ataturk.vercel.app/)
+[https://yks.vercel.app/api/ataturk](https://yks.vercel.app/api/ataturk)
