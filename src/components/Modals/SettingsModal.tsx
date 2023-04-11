@@ -40,7 +40,20 @@ const SettingsModal: Component<{
   };
 
   return (
-    <Modal title="Ayarlar" onClose={onClose}>
+    <Modal
+      title="Ayarlar"
+      onClose={onClose}
+      footer={
+        <div class="p-2 text-center">
+          <a
+            class="text-vanilla-800 hover:text-vanilla-900 duration-200"
+            href="mailto:developer.ibrahimodev@gmail.com"
+          >
+            Geliştirici ile iletişime geçmek için tıkla.
+          </a>
+        </div>
+      }
+    >
       <div class="flex flex-col gap-y-2">
         <For each={settingsLabels}>
           {(setting: ISettingsLabel, i) => (
