@@ -3,7 +3,7 @@ import { createStore } from "solid-js/store";
 
 function createLocalStore<T extends object>(name: string, value: T) {
   const stored = localStorage.getItem(name);
-  const [state, setState] = createStore<T>(stored ? JSON.parse(stored) : value);
+  const [state, setState] = createStore<T>(stored ? Object.assign(value, JSON.parse(stored)) : value);
   createEffect(() => localStorage.setItem(name, JSON.stringify(state)));
   return [state, setState] as const;
 }

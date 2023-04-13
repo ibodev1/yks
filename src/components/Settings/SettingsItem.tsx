@@ -9,7 +9,7 @@ const SettingsItem: Component<{
   return (
     <label
       for={name}
-      class="relative flex justify-between items-center p-2 text-lg !cursor-pointer"
+      class="relative flex justify-between items-center pb-2 text-md !cursor-pointer"
     >
       {label}
       <input

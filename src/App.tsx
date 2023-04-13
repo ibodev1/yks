@@ -1,4 +1,4 @@
-import { type Component, Show } from "solid-js";
+import { type Component, Show, createEffect } from "solid-js";
 import { inject } from "@vercel/analytics";
 import CountDown from "./components/CountDown";
 import DateClock from "./components/DateClock";
@@ -21,7 +21,18 @@ const App: Component = () => {
   const [settings, setSettings] = createLocalStore<ISettings>("settings", {
     showQuote: true,
     showCountDown: true,
-    showDatetime: true
+    showDatetime: true,
+    bgImage: "../assets/bg.jpeg"
+  });
+
+  createEffect(() => {
+    fetch(settings.bgImage).catch(() => {
+      setSettings({
+        ...settings,
+        bgImage: "../assets/bg.jpeg"
+      });
+    });
+    document.body.style.backgroundImage = `url(${settings.bgImage})`;
   });
   return (
     <>

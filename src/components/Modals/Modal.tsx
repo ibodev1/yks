@@ -18,7 +18,7 @@ const Modal: Component<{
           <FiX />
         </button>
       </div>
-      <div class="relative">{props.children}</div>
+      <div class="relative overflow-hidden">{props.children}</div>
       {props.footer && <div class="bg-vanilla z-50">{props.footer}</div>}
     </div>
   );

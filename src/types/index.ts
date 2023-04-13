@@ -17,4 +17,5 @@ export interface ISettings {
   showQuote: boolean;
   showCountDown: boolean;
   showDatetime: boolean;
+  bgImage: string;
 }
