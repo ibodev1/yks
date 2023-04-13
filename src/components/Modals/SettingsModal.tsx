@@ -4,6 +4,7 @@ import { ISettings } from "../../types";
 import SettingsItem from "../Settings/SettingsItem";
 import { type SetStoreFunction } from "solid-js/store";
 import toast from "solid-toast";
+import bg from "../../../assets/bg.jpeg";
 
 interface ISettingsLabel {
   name: string;
@@ -41,7 +42,7 @@ const SettingsModal: Component<{
   const setDefaultImage = () => {
     setSettings({
       ...settings,
-      bgImage: "../../../assets/bg.jpeg"
+      bgImage: bg
     });
     toast.success("Arkaplan resmi güncellendi.");
   };
@@ -77,7 +78,7 @@ const SettingsModal: Component<{
       .catch(() => {
         setSettings({
           ...settings,
-          bgImage: "../../../assets/bg.jpeg"
+          bgImage: bg
         });
         toast.error("Bir hata oluştu!");
       });
@@ -125,7 +126,7 @@ const SettingsModal: Component<{
               onClick={setDefaultImage}
             >
               <img
-                src="../../../assets/bg.jpeg"
+                src={bg}
                 alt="defaultbg"
                 class="object-cover w-full h-full object-center"
               />

@@ -10,6 +10,7 @@ import createLocalStore from "./helpers/createLocaleStore";
 import { ISettings } from "./types";
 import Works from "./components/Works";
 import { Toaster } from "solid-toast";
+import bg from "../assets/bg.jpeg";
 
 type Mode = "auto" | "development" | "production";
 
@@ -23,14 +24,14 @@ const App: Component = () => {
     showQuote: true,
     showCountDown: true,
     showDatetime: true,
-    bgImage: "../assets/bg.jpeg"
+    bgImage: bg
   });
 
   createEffect(() => {
     fetch(settings.bgImage).catch(() => {
       setSettings({
         ...settings,
-        bgImage: "../assets/bg.jpeg"
+        bgImage: bg
       });
     });
     document.body.style.backgroundImage = `url(${settings.bgImage})`;
