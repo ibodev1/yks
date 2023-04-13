@@ -9,6 +9,7 @@ import Settings from "./components/Settings";
 import createLocalStore from "./helpers/createLocaleStore";
 import { ISettings } from "./types";
 import Works from "./components/Works";
+import { Toaster } from "solid-toast";
 
 type Mode = "auto" | "development" | "production";
 
@@ -49,6 +50,7 @@ const App: Component = () => {
       <Fullscreen />
       <Settings settings={settings} setSettings={setSettings} />
       <Works />
+      <Toaster position="top-center" gutter={8} />
     </>
   );
 };

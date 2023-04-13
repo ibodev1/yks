@@ -3,6 +3,7 @@ import Modal from "./Modal";
 import { ISettings } from "../../types";
 import SettingsItem from "../Settings/SettingsItem";
 import { type SetStoreFunction } from "solid-js/store";
+import toast from "solid-toast";
 
 interface ISettingsLabel {
   name: string;
@@ -42,6 +43,7 @@ const SettingsModal: Component<{
       ...settings,
       bgImage: "../../../assets/bg.jpeg"
     });
+    toast.success("Arkaplan resmi güncellendi.");
   };
 
   const onUploadImage = async (e) => {
@@ -52,6 +54,9 @@ const SettingsModal: Component<{
         ...settings,
         bgImage: blob
       });
+      toast.success("Arkaplan resmi güncellendi.");
+    } else {
+      toast.error("Yüklediğiniz dosya resim formatında değil.");
     }
   };
 
@@ -64,8 +69,9 @@ const SettingsModal: Component<{
             ...settings,
             bgImage: imageUrl
           });
+          toast.success("Arkaplan resmi güncellendi.");
         } else {
-          console.log("resim değil");
+          toast.error("Girdiğiniz url resim formatında değil.");
         }
       })
       .catch(() => {
@@ -73,6 +79,7 @@ const SettingsModal: Component<{
           ...settings,
           bgImage: "../../../assets/bg.jpeg"
         });
+        toast.error("Bir hata oluştu!");
       });
   };
 

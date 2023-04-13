@@ -3,6 +3,7 @@ import Modal from "./Modal";
 import { deleteWork, getWorks } from "../../helpers/works";
 import { Work } from "../../types";
 import WorkItem from "../Works/WorkItem";
+import toast from "solid-toast";
 
 const WorksModal: Component<{
   onClose: () => void;
@@ -14,6 +15,7 @@ const WorksModal: Component<{
       deleteWork(work);
     });
     setWorks(getWorks());
+    toast.success("Tüm eski çalışmalarınız silindi.");
   };
 
   return (
