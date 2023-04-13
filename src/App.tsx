@@ -14,15 +14,14 @@ type Mode = "auto" | "development" | "production";
 
 inject({
   debug: import.meta.env.DEV,
-  mode: import.meta.env.MODE as Mode ?? "auto"
+  mode: (import.meta.env.MODE as Mode) ?? "auto"
 });
 
 const App: Component = () => {
   const [settings, setSettings] = createLocalStore<ISettings>("settings", {
     showQuote: true,
     showCountDown: true,
-    showDatetime: true,
-    showFullscreen: true
+    showDatetime: true
   });
   return (
     <>
@@ -36,9 +35,7 @@ const App: Component = () => {
         <Quote />
       </Show>
       <Working />
-      <Show when={settings.showFullscreen}>
-        <Fullscreen />
-      </Show>
+      <Fullscreen />
       <Settings settings={settings} setSettings={setSettings} />
       <Works />
     </>

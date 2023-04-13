@@ -21,10 +21,6 @@ const settingsLabels: ISettingsLabel[] = [
   {
     name: "showDatetime",
     label: "Saat ve Tarihi Göster"
-  },
-  {
-    name: "showFullscreen",
-    label: "Tam Ekran Butonunu Göster"
   }
 ];
 
